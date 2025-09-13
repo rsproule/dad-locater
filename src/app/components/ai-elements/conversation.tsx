@@ -90,10 +90,7 @@ export function ConversationContent({
   }, [ctx, autoScroll]);
 
   return (
-    <div
-      ref={setRef}
-      className={`overflow-y-auto pr-1 ${className || ""}`}
-    >
+    <div ref={setRef} className={`overflow-y-auto pr-1 ${className || ""}`}>
       {children}
     </div>
   );

@@ -82,9 +82,9 @@ export default function DadChat({ profile }: { profile?: string | null }) {
   const [input, setInput] = useState("");
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-3">
       <Conversation>
-        <ConversationContent>
+        <ConversationContent className="h-[420px] rounded-lg border bg-card p-3">
           {messages.map((message) => (
             <Message key={(message as any).id} from={(message as any).role}>
               <MessageContent>
