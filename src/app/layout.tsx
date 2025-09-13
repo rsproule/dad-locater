@@ -16,9 +16,9 @@ export const metadata: Metadata = {
   title: "Dad Locator",
   description: "Find your dad, chat a bit… and watch him slip away.",
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/favicon.ico",
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
   },
   openGraph: {
     title: "Dad Locator",
