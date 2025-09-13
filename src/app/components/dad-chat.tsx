@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
@@ -30,7 +31,7 @@ export default function DadChat({
     return `dad:${Math.abs(hash)}`;
   }, [profile]);
 
-  const { messages, sendMessage, setMessages, error, status } = useChat({
+  const { messages, sendMessage, setMessages, error } = useChat({
     transport: new DefaultChatTransport({
       api: "/api/chat",
       body: { profile: profile ?? undefined },
@@ -40,7 +41,7 @@ export default function DadChat({
 
   // Watch messages for LEAVE_CHAT and sanitize
   useEffect(() => {
-    const last = (messages as any[])?.[messages.length - 1] as any;
+    const last = (messages as Array<{ id: string; role: string; parts?: Array<{ type: string; text?: string }>; content?: string }>)?.[messages.length - 1];
     if (!last || last.role !== "assistant") return;
     const text = Array.isArray(last.parts)
       ? last.parts

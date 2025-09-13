@@ -8,12 +8,12 @@ export async function POST(req: Request) {
   let lastUserText: string | undefined;
   try {
     for (let i = messages.length - 1; i >= 0; i--) {
-      const m = messages[i];
+      const m: { role: string; parts?: Array<{ type: string; text?: string }>; content?: string } = messages[i];
       if (m.role === "user") {
         if (Array.isArray(m.parts)) {
           lastUserText = m.parts
-            .filter((p: any) => p.type === "text")
-            .map((p: any) => p.text || "")
+            .filter((p) => p.type === "text")
+            .map((p) => p.text || "")
             .join("");
         } else if (typeof m.content === "string") {
           lastUserText = m.content;

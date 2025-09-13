@@ -13,10 +13,11 @@ export default function RadarScanner({ active }: { active: boolean }) {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    let width = canvas.clientWidth;
-    let height = canvas.clientHeight;
-    canvas.width = width * devicePixelRatio;
-    canvas.height = height * devicePixelRatio;
+    const c = canvasRef.current as HTMLCanvasElement;
+    let width = c.clientWidth;
+    let height = c.clientHeight;
+    c.width = width * devicePixelRatio;
+    c.height = height * devicePixelRatio;
     ctx.scale(devicePixelRatio, devicePixelRatio);
 
     function draw(timestamp: number) {
@@ -24,8 +25,9 @@ export default function RadarScanner({ active }: { active: boolean }) {
       if (!startRef.current) startRef.current = timestamp;
       const progress = ((timestamp - startRef.current) / 2000) % 1; // 2s per full sweep
 
-      width = canvas.clientWidth;
-      height = canvas.clientHeight;
+      width = c.clientWidth;
+      height = c.clientHeight;
+      if (!ctx) return;
       ctx.clearRect(0, 0, width, height);
 
       const cx = width / 2;

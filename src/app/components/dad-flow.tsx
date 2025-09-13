@@ -54,6 +54,7 @@ export default function DadFlow() {
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={`data:${imageUrl.mediaType};base64,${imageUrl.base64Data}`}
+                alt="Dad"
                 className="w-full h-full object-cover"
               />
             )}

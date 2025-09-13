@@ -33,7 +33,7 @@ ${text}
     }
 
     return Response.json({ shouldLeave });
-  } catch (e) {
+  } catch {
     return Response.json({ shouldLeave: false });
   }
 }
