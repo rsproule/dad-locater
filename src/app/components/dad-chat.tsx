@@ -41,7 +41,14 @@ export default function DadChat({
 
   // Watch messages for LEAVE_CHAT and sanitize
   useEffect(() => {
-    const last = (messages as Array<{ id: string; role: string; parts?: Array<{ type: string; text?: string }>; content?: string }>)?.[messages.length - 1];
+    const last = (
+      messages as Array<{
+        id: string;
+        role: string;
+        parts?: Array<{ type: string; text?: string }>;
+        content?: string;
+      }>
+    )?.[messages.length - 1];
     if (!last || last.role !== "assistant") return;
     const text = Array.isArray(last.parts)
       ? last.parts

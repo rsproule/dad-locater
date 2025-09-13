@@ -8,7 +8,11 @@ export async function POST(req: Request) {
   let lastUserText: string | undefined;
   try {
     for (let i = messages.length - 1; i >= 0; i--) {
-      const m: { role: string; parts?: Array<{ type: string; text?: string }>; content?: string } = messages[i];
+      const m: {
+        role: string;
+        parts?: Array<{ type: string; text?: string }>;
+        content?: string;
+      } = messages[i];
       if (m.role === "user") {
         if (Array.isArray(m.parts)) {
           lastUserText = m.parts
