@@ -82,7 +82,7 @@ export default function RadarScanner({ active }: { active: boolean }) {
   }, [active]);
 
   return (
-    <div className="w-full h-64 rounded-lg overflow-hidden bg-black/80">
+    <div className="w-full h-64 rounded-lg overflow-hidden bg-card/20">
       <canvas ref={canvasRef} className="w-full h-full" />
     </div>
   );

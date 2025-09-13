@@ -64,7 +64,14 @@ export default function DadFlow() {
             </div>
           </div>
         </div>
-        <DadChat profile={profile} />
+        <DadChat
+          profile={profile}
+          onSearchAgain={() => {
+            if (typeof window !== "undefined") {
+              window.location.reload();
+            }
+          }}
+        />
       </div>
     );
   }

@@ -18,7 +18,11 @@ export default async function Home() {
   return (
     <div className="flex flex-col items-center min-h-screen p-4">
       <div className="flex justify-between items-center w-full max-w-4xl mb-6">
-        <h1 className="text-2xl font-bold">Dad Locator</h1>
+        <h1 className="text-2xl font-bold flex items-center gap-3">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo.png" alt="Dad Locator" className="h-8 w-8" />
+          Dad Locator
+        </h1>
         <SignOut />
       </div>
 
