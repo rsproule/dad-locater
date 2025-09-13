@@ -92,7 +92,7 @@ export function ConversationContent({
   return (
     <div
       ref={setRef}
-      className={`space-y-3 max-h-96 overflow-y-auto pr-1 ${className || ""}`}
+      className={`overflow-y-auto pr-1 ${className || ""}`}
     >
       {children}
     </div>
